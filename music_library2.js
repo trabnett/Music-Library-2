@@ -21,7 +21,7 @@ class Playlist {
     addTrack(track) {
         this.tracks.push(track)
     }
-    overallRating() {
+    getOverallRating() {
         let counter = 0;
         for (let track of this.tracks) {
             counter += track.rating;
@@ -29,12 +29,13 @@ class Playlist {
         this.overallRating = (counter / this.tracks.length)
         return this.overallRating
     }
-    totalDuration() {
+    getTotalDuration() {
         let counter = 0;
         for (let track of this.tracks) {
             counter += track.length
         }
-        return counter
+        this.totalDuration = counter
+        return this.totalDuration
     }
 }
 
@@ -58,6 +59,6 @@ jazz.addTrack(guitarsolo)
 u2.addTrack(one)
 u2.addTrack(BloodySunday)
 rock.addPlaylist(u2)
-console.log(u2.tracks)
-console.log(jazz.totalDuration())
+jazz.getTotalDuration()
+console.log(jazz.totalDuration)
 
